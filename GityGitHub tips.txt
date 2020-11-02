@@ -172,16 +172,61 @@ git push (origin) (master) (Sube Cambios)
 ************Traer un repositorio externo************
 ****************************************************
 
-****************************************************
-********Tags y versiones en Git y GitHubo***********
-****************************************************
+*************************************
+**************Seguridad**************
+*************************************
 
-git tag -a nombre-del-tag id-del-commit (Crear un nuevo tag y asignarlo a un commit)
-git tag -d nombre-del-tag (Borrar un tag en el repositorio local)
-git tag o git show-ref --tags (Listar los tags de nuestro repositorio local)
-git push origin --tags (Publicar un tag en el repositorio remoto)
-git tag -d nombre-del-tag y git push origin :refs/tags/nombre-del-tag (Borrar un tag del repositorio remoto)
+ssh-keygen -t rsa -b 4096 -C "jesuscastellanospaez@gmail.com" (crea la llave publica y privada)
+eval $(ssh-agent -s) (saber si el agente ssh esta ejecuntando)
+ssh-add ~/.ssh/id_rsa (agregar la llave privada)
 
-****************************************************
-********Tags y versiones en Git y GitHubo***********
-****************************************************
+git remote set-url origin git@github.com:gsuscastellanosSC/hyperblog.git (cambiar url para que sea con ssh)
+
+
+*************************************
+**************Seguridad**************
+*************************************
+
+**********************************
+***************TAGS***************
+**********************************
+
+git log --all(Muesta toda la historia)
+git log --all --graph (Muestra toda la historia con la ineracción de las ramas)
+git log --all --graph --decorate --oneline
+alias arbolito="git log --all --graph --decorate --oneline"(forma de alias en linux)
+
+git tag -a v0.1 -m "apendiendo tags en git" (hash del commit) (crear un tag)
+git show-ref --tags
+
+git push origin --tags (enviar los tags al repositorio remoto)
+git tag -d v0.1   && $ git push origin :refs/tags/v0.1 (Borrar tags)
+
+
+**********************************
+***************TAGS***************
+**********************************
+
+************************
+********ramas***********
+************************
+
+git show-branch --all (¿Cuales branch existen y sus historias)
+gitk (igual que la anterior per con gui)
+git push origin :[nombre_branch] (Elimina rama remota)
+
+
+************************
+********ramas***********
+************************
+
+************************
+***Crear fuente nueva***
+************************
+
+git remote add upstream (url-github)
+git pull upstream master (trae todos los cabios de master del origen upstream)
+
+************************
+***Crear fuente nueva***
+************************
